@@ -12,6 +12,7 @@ public class BowController : MonoBehaviour
    
     public Transform spawn;
     public Rigidbody arrowObj;
+    public GameObject arrowPrefab;
 
     private void Update()
     {
@@ -23,8 +24,9 @@ public class BowController : MonoBehaviour
 
         if (Input.GetKeyUp(fireButton))
         {
-            Rigidbody arrow = Instantiate(arrowObj, spawn.position, Quaternion.identity) as Rigidbody; //criar um novo rigidbody para substiuir o nosso
-            arrow.AddForce(spawn.forward * charge, ForceMode.Impulse);
+            //Rigidbody arrow = Instantiate(arrowObj, spawn.position, Quaternion.identity) as Rigidbody; //criar um novo rigidbody para substiuir o nosso
+            Instantiate(arrowPrefab, spawn.position, spawn.rotation).GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge, ForceMode.Impulse);
+           // arrow.AddForce(spawn.forward * charge, ForceMode.Impulse);
             charge = 0;
         }
     }

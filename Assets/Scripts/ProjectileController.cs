@@ -8,4 +8,12 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject, 5);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Target")){
+
+            Destroy(other.gameObject);
+        }
+    }
 }
