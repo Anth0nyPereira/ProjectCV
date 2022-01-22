@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BowController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class BowController : MonoBehaviour
     public float chargeRate;
 
     public KeyCode fireButton;
-   
+
+    public TextMeshProUGUI _text;
     public Transform spawn;
     public Rigidbody arrowObj;
     public GameObject arrowPrefab;
@@ -19,7 +21,7 @@ public class BowController : MonoBehaviour
         if(Input.GetKey(fireButton) && charge < chargeMax)
         {
             charge += Time.deltaTime * chargeRate;
-            Debug.Log(charge.ToString());
+            //Debug.Log(charge.ToString());
         }
 
         if (Input.GetKeyUp(fireButton))
@@ -29,6 +31,7 @@ public class BowController : MonoBehaviour
            // arrow.AddForce(spawn.forward * charge, ForceMode.Impulse);
             charge = 0;
         }
+
     }
 
 

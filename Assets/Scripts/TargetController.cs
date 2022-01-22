@@ -18,9 +18,9 @@ public class TargetController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //if (other.gameObject.CompareTag("Arrow")){
+        if (other.gameObject.CompareTag("Arrow")){
 
-        //    Destroy(other.gameObject);
-        //}
+            Destroy(this.gameObject);
+        }
     }
 }
