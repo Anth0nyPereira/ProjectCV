@@ -51,7 +51,7 @@ public class BowController : MonoBehaviour
 
             
             var sz = particleBase.sizeOverLifetime;
-            sizeP = remap(0, chargeMax, 0, 5, charge);
+            sizeP = remap(0, chargeMax, 0, 3, charge);
             sz.size = new ParticleSystem.MinMaxCurve(sizeP, curve);
             
             
