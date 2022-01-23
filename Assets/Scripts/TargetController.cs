@@ -59,7 +59,8 @@ public class TargetController : MonoBehaviour
 
             if (!hasTarget)
             {
-                Instantiate(target, targetPos[randomSpawnSpot].position, Quaternion.Euler(-90, -90, 0));
+                GameObject targetConed = Instantiate(target, targetPos[randomSpawnSpot].position, Quaternion.Euler(-90, -90, 0));
+                targetConed.name = "TargetSpawn";
             }
             //}
 

@@ -15,7 +15,7 @@ public class TargetsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(target);
+        Instantiate(target, transform.position, Quaternion.Euler(-90, -90, 0));
         targets = new List<GameObject>();
         randomSpawnSpot = Random.Range(0, targetPos.Length);
     }
