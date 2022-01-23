@@ -16,10 +16,12 @@ public class ProjectileController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //if (other.gameObject.CompareTag("Target")){
+        if (other.gameObject.CompareTag("Target")){
 
-        //    Destroy(other.gameObject);
-        //    Debug.Log(i);
-        //}
+            //    Destroy(other.gameObject);
+            //    Debug.Log(i);
+            score += 1;
+            Debug.Log(score);
+        }
     }
 }
