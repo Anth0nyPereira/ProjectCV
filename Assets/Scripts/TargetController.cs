@@ -14,13 +14,16 @@ public class TargetController : MonoBehaviour
     private Collider[] hitColliders; 
 
 
+    public GameObject explosion; // drag your explosion prefab here
+    float duration = 3.0f;
+    float originalRange;
 
     // Start is called before the first frame update
     void Start()
     {
         randomSpawnSpot = Random.Range(0, targetPos.Length);
         spawnPoint = targetPos[randomSpawnSpot].position; 
-        hitColliders = Physics.OverlapSphere(spawnPoint, 2);//1 is purely chosen arbitrarly verificar se existe algum objeto na posição
+        hitColliders = Physics.OverlapSphere(spawnPoint, 2);//1 is purely chosen arbitrarly verificar se existe algum objeto na posiï¿½ï¿½o
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class TargetController : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Arrow")){
-
+            GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(this.gameObject);
            // for(int i = 0; i<targetPos.Length; i++)
             //{
@@ -42,6 +45,19 @@ public class TargetController : MonoBehaviour
                // }
             //}
 
+            Destroy(expl, 1); // delete the explosion after 1 seconds
+
+            /*GameObject lightGameObject = new GameObject("The Light");
+            // Add the light component
+            Light lightComp = lightGameObject.AddComponent<Light>();
+            var amplitude = Mathf.PingPong(Time.time, duration);
+            amplitude = amplitude / duration * 0.5f + 0.5f;
+            lightComp.range = lightComp.range * amplitude;
+            // Set color and position
+            lightComp.color = Color.red;
+            // Set the position (or any transform property)
+            lightGameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Destroy(lightGameObject, 3);*/
         }
     }
 }
