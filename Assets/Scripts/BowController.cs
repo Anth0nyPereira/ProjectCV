@@ -28,6 +28,8 @@ public class BowController : MonoBehaviour
     {
         curve.AddKey(0.0f, 0.3f);
         curve.AddKey(1.0f, 0.3f);
+      
+
     }
 
     private void Update()
@@ -54,8 +56,12 @@ public class BowController : MonoBehaviour
            // arrow.AddForce(spawn.forward * charge, ForceMode.Impulse);
             charge = 0;
             var sz = particleBase.sizeOverLifetime;
-            sz.size = new ParticleSystem.MinMaxCurve(0, curve);    
+            sz.size = new ParticleSystem.MinMaxCurve(0, curve);
+            
+            
         }
+
+        print(sizeP);
 
     }
 
