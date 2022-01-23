@@ -7,7 +7,6 @@ using TMPro;
 public class ProjectileController : MonoBehaviour
 {
     public int i = 0;
-    public int score;
 
     void Start()
     {
@@ -20,8 +19,6 @@ public class ProjectileController : MonoBehaviour
 
             //    Destroy(other.gameObject);
             //    Debug.Log(i);
-            score += 1;
-            Debug.Log(score);
         }
     }
 }

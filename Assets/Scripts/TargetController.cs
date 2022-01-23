@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetController : MonoBehaviour
 {
+    private ScoreController scoreController;
 
     public GameObject target;
     public Transform[] targetPos;
@@ -11,13 +12,20 @@ public class TargetController : MonoBehaviour
     private int x = 0;
     private int randomSpawnSpot;
     private Vector3 spawnPoint;
-    private Collider[] hitColliders; 
+    private Collider[] hitColliders;
+    private int score = 0;
+
+    bool hasTarget;
 
 
     public GameObject explosion; // drag your explosion prefab here
     float duration = 3.0f;
     float originalRange;
 
+    private void Awake()
+    {
+        scoreController = GameObject.FindObjectOfType<ScoreController>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +37,14 @@ public class TargetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hitColliders.Length > 0)
+        {
+            hasTarget = true;
+        }
+        else
+        {
+            hasTarget = false;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -37,12 +52,15 @@ public class TargetController : MonoBehaviour
         if (other.gameObject.CompareTag("Arrow")){
             GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
             Destroy(this.gameObject);
+            score += 1;
+            scoreController.UpdateScore(score);
            // for(int i = 0; i<targetPos.Length; i++)
             //{
-              //  if (hitColliders.Length > 0)
-                //{
-                    Instantiate(target, targetPos[randomSpawnSpot].position, Quaternion.Euler(-90, -90, 0));
-               // }
+
+            if (!hasTarget)
+            {
+                Instantiate(target, targetPos[randomSpawnSpot].position, Quaternion.Euler(-90, -90, 0));
+            }
             //}
 
             Destroy(expl, 1); // delete the explosion after 1 seconds

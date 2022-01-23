@@ -6,11 +6,17 @@ using TMPro;
 public class ScoreController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public int i = 0;
+    public int currentScore = 0;
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //   scoreText.text = "Score:" + currentScore.ToString();     
+    //}
+
+    public void UpdateScore(int score)
     {
-       scoreText.text = "Score:" + i.ToString();     
+        currentScore += score;
+        scoreText.text = "Score:" + currentScore.ToString();
     }
 }

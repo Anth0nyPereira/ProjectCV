@@ -6,7 +6,6 @@ public class TargetsController : MonoBehaviour
 {
     public List<GameObject> targets;
     public int maxTargets = 10;
-  //  public GameObject[] targetUsed;
     public GameObject target;
     private int randomSpawnSpot;
     public Transform[] targetPos;
@@ -16,6 +15,7 @@ public class TargetsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(target);
         targets = new List<GameObject>();
         randomSpawnSpot = Random.Range(0, targetPos.Length);
     }
