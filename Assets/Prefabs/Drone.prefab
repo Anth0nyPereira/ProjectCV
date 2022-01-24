@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 5237326557511494833, guid: 0d13bf79fa338fd4db6a981cfaae7e9b, type: 3}
   - {fileID: 8271905838355700265, guid: 520c19faefc14e64ba505a24cb8921d5, type: 3}
   - {fileID: 3738603565414029730, guid: 3614a89f5d8698b4699353f0829c8932, type: 3}
-  explosion: {fileID: 6196168565640558558, guid: b50b9c08e45ff3642a5e8cdd62dcc82a, type: 3}
+  explosion: {fileID: 409310060962609760, guid: e2ad06d6daf6a75478025b2dfad218b7, type: 3}
 --- !u!64 &2108206656092004733
 MeshCollider:
   m_ObjectHideFlags: 0

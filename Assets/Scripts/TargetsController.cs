@@ -7,6 +7,7 @@ public class TargetsController : MonoBehaviour
     public List<GameObject> targets;
     public int maxTargets = 10;
     public GameObject target;
+    public GameObject ships;
     private int randomSpawnSpot;
     public Transform[] targetPos;
     public GameObject[] spawnspots;
@@ -47,7 +48,7 @@ public class TargetsController : MonoBehaviour
 
             //}
             //Naves
-            //Instantiate(target, targetPos[x].position, Quaternion.Euler(0, -90, 0));
+            Instantiate(ships, targetPos[x].position, Quaternion.Euler(-90, 90, 0));
             //Targets
             Instantiate(target, targetPos[x].position, Quaternion.Euler(-90, -90, 0));
 
