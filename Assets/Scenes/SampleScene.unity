@@ -8332,6 +8332,7 @@ MonoBehaviour:
   targets: []
   maxTargets: 10
   target: {fileID: 5113054740021323600, guid: cb597974fbd3f2342a7897c53792d9f9, type: 3}
+  ships: {fileID: 7820014768258434219, guid: 905e7b89547613740b1afc057938aa92, type: 3}
   targetPos:
   - {fileID: 2227074172595541733}
   - {fileID: 757339307}
