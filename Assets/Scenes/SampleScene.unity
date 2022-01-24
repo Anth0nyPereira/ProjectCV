@@ -9905,18 +9905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 101726895941904933, guid: e2ad06d6daf6a75478025b2dfad218b7, type: 3}
-      propertyPath: UVModule.tilesX
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 101726895941904933, guid: e2ad06d6daf6a75478025b2dfad218b7, type: 3}
-      propertyPath: UVModule.tilesY
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 101726895941904933, guid: e2ad06d6daf6a75478025b2dfad218b7, type: 3}
-      propertyPath: UVModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 409310060962609760, guid: e2ad06d6daf6a75478025b2dfad218b7, type: 3}
       propertyPath: m_Name
       value: 'Explosion '
