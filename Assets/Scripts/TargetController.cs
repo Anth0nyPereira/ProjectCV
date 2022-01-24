@@ -57,11 +57,11 @@ public class TargetController : MonoBehaviour
            // for(int i = 0; i<targetPos.Length; i++)
             //{
 
-            if (!hasTarget)
-            {
+           //if (!hasTarget)
+         //   {
                 GameObject targetConed = Instantiate(target, targetPos[randomSpawnSpot].position, Quaternion.Euler(-90, -90, 0));
                 targetConed.name = "TargetSpawn";
-            }
+          //  }
             //}
 
             Destroy(expl, 1); // delete the explosion after 1 seconds

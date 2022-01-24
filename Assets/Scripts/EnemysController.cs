@@ -27,10 +27,15 @@ public class EnemysController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInsightRange, playerInAttackRange;
 
+    private ScoreController scoreController;
+
+    private int score = 0;
+
     public void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        scoreController = GameObject.FindObjectOfType<ScoreController>();
     }
 
     // Start is called before the first frame update
@@ -116,6 +121,8 @@ public class EnemysController : MonoBehaviour
     {
         if(health <= 0)
         {
+            score += 1;
+            scoreController.UpdateScore(score);
             Destroy(this.gameObject);
         }
     }

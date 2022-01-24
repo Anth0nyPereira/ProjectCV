@@ -38,13 +38,15 @@ public class TargetsController : MonoBehaviour
 
             //if(targetPos[x].transform.childCount <= 0)
             //{
-                
-               // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
+
+            // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
             //} else
             //{
 
             //}
-
+            //Naves
+            //Instantiate(target, targetPos[x].position, Quaternion.Euler(0, -90, 0));
+            //Targets
             Instantiate(target, targetPos[x].position, Quaternion.Euler(-90, -90, 0));
 
             // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
