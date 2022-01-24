@@ -12,6 +12,8 @@ public class TargetsController : MonoBehaviour
     public GameObject[] spawnspots;
     private int x = 0;
 
+
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,8 @@ public class TargetsController : MonoBehaviour
     public void RemoveItem(GameObject item)
     {
         targets.Remove(item);
+        GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+        Destroy(expl, 1);
     }
 
     public bool isFull()

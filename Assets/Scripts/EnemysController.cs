@@ -27,6 +27,8 @@ public class EnemysController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInsightRange, playerInAttackRange;
 
+    public GameObject explosion;
+
     public void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -117,6 +119,8 @@ public class EnemysController : MonoBehaviour
         if(health <= 0)
         {
             Destroy(this.gameObject);
+            GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+            Destroy(expl, 1);
         }
     }
 
