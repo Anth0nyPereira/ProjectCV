@@ -7,11 +7,14 @@ public class TargetsController : MonoBehaviour
     public List<GameObject> targets;
     public int maxTargets = 10;
     public GameObject target;
+    public GameObject ships;
     private int randomSpawnSpot;
     public Transform[] targetPos;
     public GameObject[] spawnspots;
     private int x = 0;
 
+
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +41,15 @@ public class TargetsController : MonoBehaviour
 
             //if(targetPos[x].transform.childCount <= 0)
             //{
-                
-               // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
+
+            // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
             //} else
             //{
 
             //}
-
+            //Naves
+            Instantiate(ships, targetPos[x].position, Quaternion.Euler(-90, 90, 0));
+            //Targets
             Instantiate(target, targetPos[x].position, Quaternion.Euler(-90, -90, 0));
 
             // Instantiate(target, targetPos[randomSpawnSpot].transform, false);
@@ -63,6 +68,8 @@ public class TargetsController : MonoBehaviour
     public void RemoveItem(GameObject item)
     {
         targets.Remove(item);
+        GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+        Destroy(expl, 1);
     }
 
     public bool isFull()

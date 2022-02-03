@@ -24,6 +24,11 @@ public class BowController : MonoBehaviour
     private AnimationCurve curve = new AnimationCurve();
     float sizeP;
 
+    //light size with power shot
+    public Light pLight;
+    public Light lantern;
+    public KeyCode rightButton;
+
     private void Start()
     {
         curve.AddKey(0.0f, 0.3f);
@@ -35,6 +40,14 @@ public class BowController : MonoBehaviour
     private void Update()
     {
 
+
+        if(Input.GetKeyDown(fireButton))
+        {
+            particleBase.Play();
+            pLight.enabled = true;
+            
+        }
+
         if(Input.GetKey(fireButton) && charge < chargeMax)
         {
             
@@ -43,8 +56,9 @@ public class BowController : MonoBehaviour
 
             
             var sz = particleBase.sizeOverLifetime;
-            sizeP = remap(0, chargeMax, 0, 5, charge);
+            sizeP = remap(0, chargeMax, 0, 3, charge);
             sz.size = new ParticleSystem.MinMaxCurve(sizeP, curve);
+            pLight.intensity = sizeP;
             
             
         }
@@ -55,13 +69,26 @@ public class BowController : MonoBehaviour
             Instantiate(arrowPrefab, spawn.position, spawn.rotation).GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge, ForceMode.Impulse);
            // arrow.AddForce(spawn.forward * charge, ForceMode.Impulse);
             charge = 0;
-            var sz = particleBase.sizeOverLifetime;
-            sz.size = new ParticleSystem.MinMaxCurve(0, curve);
+            particleBase.Clear();
+            particleBase.Stop();
+            pLight.enabled = false;
+
+            
             
             
         }
 
-        print(sizeP);
+        if (Input.GetKeyDown(rightButton))
+        {
+            lantern.enabled = true;
+        }
+
+         if (Input.GetKeyUp(rightButton))
+        {
+            lantern.enabled = false;
+        }
+
+
 
     }
 
